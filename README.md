@@ -14,7 +14,7 @@ with the json object is not found.
 
 
 
-For validity ,as soon as a seat is booked a database trigger 'AFTER_INSERT' found in the 'ticketdet' table is called. This trigger carries out two tasks:
+To achieve data integrity ,as soon as a seat is booked a database trigger 'AFTER_INSERT' found in the 'ticketdet' table is called. This trigger carries out two tasks:
  1.) It updates 'status ' column in the seats table to '1' where 'bus_id' is the index. (1 means seat is booked,0 means seat is unavailable).
  2.)  It generates a 6 digit randomm number using the mySql function 'RAND()'. This number is then used as a ticket number which should be a unique. 
  
