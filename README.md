@@ -9,7 +9,10 @@ On the 'selectseat.php' page we use a simple function array.indexof() to compare
 database to the 40 seat numbers found in the layout. The json object queried from the database is an array of all seats that have been booked. If
 you look at the ERD-Diagram.png you will see a database object in the form of a view called 'unavailable_seats'. We acquire data from the column 'seatscol'
 from the view 'unavailable_seats'. The data is then converted into a json object as seen in the implementation of 'checkseat.php' and compared to each one of the seat.
-The custom function can be seen on the 'check_seat.js' file.
+The custom function can be seen on the 'check_seat.js' file. The function accepts one parameter and returns a value of -1 if the value being compared
+with the json object is not found.
+
+
 
 For validity ,as soon as a seat is booked a database trigger 'AFTER_INSERT' found in the 'ticketdet' table is called. This trigger carries out two tasks:
  1.) It updates 'status ' column in the seats table to '1' where 'bus_id' is the index. (1 means seat is booked,0 means seat is unavailable).
